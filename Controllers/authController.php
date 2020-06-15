@@ -22,13 +22,12 @@ class authController extends ControllerControllers{
         header("HTTP/1.1 400 Bad Request"); 
       
      }
-
-
+    
      public function register(){
-     	  if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-
-     	  }
-     	  header("HTTP/1.1 400 Bad Request"); 
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $user = $this->auth->register($this->dataObject);
+        }
+        header("HTTP/1.1 400 Bad Request"); 
      }
 
  }

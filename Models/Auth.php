@@ -30,4 +30,14 @@ class Auth{
 			return $usuario;
    
 	}
+
+		public function register($users){
+		$pass=password_hash($users['clave'],PASSWORD_DEFAULT);
+		$n=$users['nombre'];
+	    $query="INSERT INTO usuarios (correo_electronico,clave) VALUES('$n', '$pass')";
+		$datos = $this->con->consultaSimple($query);
+
+		return $datos;
+
+	}
 }
